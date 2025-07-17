@@ -1,4 +1,5 @@
 import React from "react";
+import Todo from "./Todo";
 
 function Conditional(props) {
   function mes(text) {
@@ -13,6 +14,10 @@ function Conditional(props) {
         <h3> {nam}</h3>
       ))}
       <button onClick={() => mes("hello")}>Hello</button>
+      
+      <Todo name="Farhan" value={true}></Todo>
+      {/* <Todo name="Ali" value={true}></Todo>
+      <Todo name="" value={false}></Todo> */}
     </>
   );
 }
