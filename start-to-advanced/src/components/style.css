@@ -59,3 +59,14 @@ span {
   color: #777;
   font-size: 14px;
 }
+
+  div {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+  img {
+    display: block;
+    margin: 5px 0;
+  }

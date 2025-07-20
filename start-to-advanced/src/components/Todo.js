@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { sculptureList } from "./data";
 import "./style.css";
+import UseEfffectp from "./UseEfffectp";
+import Controll from "./Controlled";
+import Lifting from "./Liftingup";
 
 function Todo(props) {
   const [index, setindex] = useState(0);
   const [showm, setshowm] = useState(false);
   const [fist, setfirst] = useState(" ");
+  const [display, setdisplay] = useState(false);
+
+  const [name, setname] = useState("");
+  const [toggle,settoggle]= useState(false);
 
   const users = [
     { id: 1, name: "Farhan", role: "Seller" },
@@ -49,11 +56,16 @@ function Todo(props) {
     setshowm(!showm);
   }
 
-  function handleinput(e){
+  function handleinput(e) {
     setfirst(e.target.value);
   }
 
+  function handledis(){
+    settoggle(!toggle);
+  }
+
   return (
+
     <>
       {/* <button onClick={handleindex}>Next</button>
      <h4>{datain.name} by {datain.artist}</h4>
@@ -101,12 +113,19 @@ function Todo(props) {
         ))}
       </div>
 
-        <form onSubmit={(e)=>e.preventDefault()}>
+      <form onSubmit={(e) => e.preventDefault()}>
         <input type="text" value={fist} onChange={handleinput}></input>
-      <h1>Hi, {fist}</h1>
+        <h1>Hi, {fist}</h1>
+      </form>
+      {display ? <UseEfffectp></UseEfffectp> : null}
+      <button onClick={() => setdisplay(!display)}>Toggle</button>
 
-        </form>
 
+      {toggle===true?null:<Controll setname={setname} ></Controll>}  
+      {/* <Controll setname={setname}></Controll> */}
+
+      <button onClick={handledis}>{toggle?"Show cpmon":"Hide Components"}</button>
+      <Lifting name={name}></Lifting>
     </>
   );
 }

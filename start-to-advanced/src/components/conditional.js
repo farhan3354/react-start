@@ -10,9 +10,12 @@ function Conditional(props) {
     <>
       {console.log(props.arr)}
       {props.value ? "Hello Farhan" : "Register is flase"}
-      {props.arr.map((nam, index) => (
-        <h3> {nam}</h3>
+     <div>
+       {props.arr.map((nam, index) => (
+        <h3 key={index}> {nam}</h3>
       ))}
+     </div>
+     
       <button onClick={() => mes("hello")}>Hello</button>
       
       <Todo name="Farhan" value={true}></Todo>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Layout</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.invoice-container {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+.empty-box, .note-box, .note-extra-row, .row, .row1 {
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.empty-box {
+    width: 20%;
+}
+
+.note-column {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px; 
+}
+
+.note-box {
+    padding: 10px;
+    font-size: 14px;
+    text-align: justify;
+    line-height: 1.4;
+    flex-grow: 1; 
+}
+
+.note-extra-row {
+    height: 39px;
+}
+
+.totals-box, .totals-box1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.totals-box {
+    width: 30%;
+}
+
+.totals-box1 {
+    width: 20%;
+}
+
+.row, .row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+    height: 39px;
+    padding: 6px 8px;
+    box-sizing: border-box;
+}
+</style>
+</head>
+<body>
+
+<div class="invoice-container">
+    <div class="empty-box"></div>
+
+    <div class="note-column">
+        <div class="note-box">
+            استلمت البضاعة كاملة وجيدة وخالية من أي عيب وهي غير قابلة للتبديل أو الإعادة. كما يجدر التنويه بأن بعض الأصناف معرضة لنقص في الوزن نظرا للظروف.
+            <br><br>
+            I received the goods in good condition and free of any defects. Goods are not exchangeable or returnable. It is also worth noting that some types of weight loss due to the atmosphere.
+        </div>
+        <div class="note-extra-row" style="background-color: #c6bfb5;"></div>
+    </div>
+
+    <div class="totals-box">
+        <div class="row"><span>Total Before VAT</span><span>الإجمالي قبل الضريبة</span></div>
+        <div class="row"><span>Discount</span><span>خصم</span></div>
+        <div class="row"><span>VAT</span><span>الضريبة</span></div>
+        <div class="row"><span>Net Total</span><span>الإجمالي</span></div>
+    </div>
+
+    <div class="totals-box1">
+        <div class="row1" style="background-color: #c6bfb5;"></div>
+        <div class="row1" style="background-color: #c6bfb5;"></div>
+        <div class="row1" style="background-color: #c6bfb5;"></div>
+        <div class="row1" style="background-color: #c6bfb5;"></div>
+    </div>
+</div>
+
+</body>
+</html>
