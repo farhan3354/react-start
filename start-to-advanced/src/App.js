@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import Conditional from "./components/conditional";
 import Button from "./components/Button";
 import Product from "./components/Product";
+import A from "./components/A";
 
 function App() {
   const [hidecom, sethidecom] = useState(true);
@@ -44,7 +45,7 @@ function App() {
   let register = false;
   let name = ["farhan", "bashir", "sam", "asif"];
 
-
+  
 
   return (
     <div className="App">
@@ -54,7 +55,9 @@ function App() {
       <input onChange={(e) => handleinfr(e.target.value)}></input>
       <h5>{data.farhan}</h5>
       <h5>{data.friend.ali}</h5>
-
+      
+      <A></A>
+      
       <hr></hr>
       <input type="text" onChange={(e) => handlearray(e.target.value)}></input>
       {dataarr.map((item, index) => (
