@@ -1,71 +1,43 @@
-import React, {useState } from "react";
+import React, { useState } from "react";
 import Conditional from "./components/conditional";
 import Button from "./components/Button";
-import Product from "./components/Product";
+import Product from "./components/pages/Product";
 import A from "./components/A";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/pages/Home";
+import About from "./components/pages/About";
+import Subject from "./components/pages/Subject";
+import Dep from "./components/pages/Dep";
+import PageNot from "./components/pages/PageNot";
+import Userlist from "./components/pages/Userlist";
+import User from "./components/pages/User";
+import Store from "./components/pages/Store";
 
 function App() {
   const [hidecom, sethidecom] = useState(true);
-  const [data, setdata] = useState({
-    farhan: "Fb",
-    age: 21,
-    friend: {
-      ali: "police",
-      asif: "developer",
-    },
-  });
-  const [dataarr, setdataarr] = useState([
-    { nam: "Farhan", ag: 21 },
-    { nam: "Asif", ag: 29 },
-    { nam: "Sam", ag: 19 },
-  ]);
-
-  function handlein(val) {
-    // let temp=data;
-    // temp.farhan=val;
-    // console.log(temp.farhan);
-    data.farhan = val;
-    setdata({ ...data });
-  }
-
-  function handleinfr(valu) {
-    // let t=data;
-    // t.friend.ali=valu;
-    // console.log(t.friend.ali);
-
-    data.friend.ali = valu;
-    setdata({ ...data, friend: { ...data.friend, valu } });
-  }
-
-  function handlearray(a) {
-    dataarr[dataarr.length - 1].ag = a;
-    setdataarr([...dataarr]);
-  }
 
   let register = false;
   let name = ["farhan", "bashir", "sam", "asif"];
 
-  
-
   return (
     <div className="App">
-      <Button sethidecom={sethidecom} hidecom={hidecom}></Button>
-      {hidecom ? <Conditional value={register} arr={name} /> : null}
-      <input onChange={(e) => handlein(e.target.value)}></input>
-      <input onChange={(e) => handleinfr(e.target.value)}></input>
-      <h5>{data.farhan}</h5>
-      <h5>{data.friend.ali}</h5>
-      
-      <A></A>
-      
-      <hr></hr>
-      <input type="text" onChange={(e) => handlearray(e.target.value)}></input>
-      {dataarr.map((item, index) => (
-        <h4 key={index}>
-          {item.nam}age:{item.ag}
-        </h4>
-      ))}
-      <Product></Product>
+      {/* <Button sethidecom={sethidecom} hidecom={hidecom}></Button> */}
+      {/* {hidecom ? <Conditional value={register} arr={name} /> : null} */}
+
+      <Routes>
+        <Route path="/product" element={<Product></Product>}></Route>
+        <Route path="/" element={<A></A>}></Route>
+        <Route path="/home" element={<Home></Home>}></Route>
+
+        <Route path="/about" element={<About></About>}>
+          <Route path="subject" element={<Subject></Subject>}></Route>
+          <Route path="dep" element={<Dep></Dep>}></Route>
+        </Route>
+        <Route path="/user" element={<Userlist></Userlist>}></Route>
+        <Route path="/userdetail/:id" element={<User></User>}></Route>
+        <Route path="/store" element={<Store></Store>}></Route>
+        {/* <Route path="/*" element={<PageNot></PageNot>}></Route> */}
+      </Routes>
     </div>
   );
 }

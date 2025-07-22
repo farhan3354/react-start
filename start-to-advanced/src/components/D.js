@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import Valuesub from "./Context";
 
 // export default function D({aler,mes}) {
-export default function D(){
-        const sub =useContext(Valuesub);
-    return (
+export default function D() {
+ 
+
+  const sub = useContext(Valuesub);
+  return (
     <>
       <h2>D</h2>
       <p>{sub}</p>
